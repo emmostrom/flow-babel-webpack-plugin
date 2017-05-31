@@ -5,7 +5,7 @@ var store = {
   error: null,
   flowOptions: [
     'status',
-    '--color=always',
+    '--color=auto',
   ],
 };
 
@@ -85,6 +85,7 @@ function checkFlowStatus(compiler, next) {
 function pushError(compilation) {
   if (store.error) {
     compilation.errors.push(store.error);
+    store.error = null;
   }
 }
 
