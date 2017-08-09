@@ -72,7 +72,7 @@ function checkFlowStatus(compiler, next) {
   var res = spawnSync(flow, store.flowOptions);
   var status = res.status;
 
-  if (status !== 0) {
+  if (status != null && status !== 0) {
     var errorCode = flowErrorCode(status);
     var errorDetails = res.stdout.toString() + res.stderr.toString();
     store.error = new Error('Flow: ' + errorCode + '\n\n' + errorDetails);
